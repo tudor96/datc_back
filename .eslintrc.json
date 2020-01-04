@@ -1,0 +1,24 @@
+{
+    "extends": "google",
+    "parserOptions": {
+        "ecmaVersion": 2017
+    },
+    "env": {
+        "es6": true
+    },
+    "rules": {
+        "max-len": [0],
+        "new-cap": [0],
+        "prefer-rest-params": [0],
+        "no-tabs": [0],
+        "require-jsdoc": ["error", {
+            "require": {
+                "FunctionDeclaration": false,
+                "MethodDefinition": false,
+                "ClassDeclaration": false,
+                "ArrowFunctionExpression": false,
+                "FunctionExpression": false
+            }
+        }]
+    }
+}

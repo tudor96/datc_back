@@ -1,0 +1,501 @@
+{
+	"info": {
+		"_postman_id": "10a79a54-ca56-4bf1-b15b-329390d3b912",
+		"name": "DATC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "insertUser",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"firstname\": \"Alexandru\",\n\t\"lastname\": \"Golcea\",\n\t\"email\": \"gltudor97@gmail.com\",\n\t\"cnp\": \"1234567891111\",\n\t\"adresa\": \"totundevreaplm\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4010/api/v1.0/platform/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4010",
+					"path": [
+						"api",
+						"v1.0",
+						"platform",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUser",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "x-user-cnp",
+						"value": "1234567890000",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4010/api/v1.0/platform/user/?cnp=1234567890000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4010",
+					"path": [
+						"api",
+						"v1.0",
+						"platform",
+						"user",
+						""
+					],
+					"query": [
+						{
+							"key": "cnp",
+							"value": "1234567890000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUserById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "x-user-cnp",
+						"type": "text",
+						"value": "1234567890000"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4010/api/v1.0/platform/user/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4010",
+					"path": [
+						"api",
+						"v1.0",
+						"platform",
+						"user",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertPoll",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "x-user-cnp",
+						"type": "text",
+						"value": "1234567890000"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"pollu meu\",\n\t\"description\": \"ce pollu meu\",\n\t\"startDate\": \"2020-02-02\",\n\t\"endDate\": \"2020-03-03\",\n\t\"questions\": [\n\t\t{\n\t\t\t\"name\": \"intrebearea mea plm?\",\n\t\t\t\"options\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"johha\"\n\t\t\t\t},{\n\t\t\t\t\t\"name\": \"danci\"\n\t\t\t\t}]\n\t\t}]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4010/api/v1.0/platform/election",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4010",
+					"path": [
+						"api",
+						"v1.0",
+						"platform",
+						"election"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getPoll",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "x-user-cnp",
+						"type": "text",
+						"value": "1234567890000"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4010/api/v1.0/platform/election/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4010",
+					"path": [
+						"api",
+						"v1.0",
+						"platform",
+						"election",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getPolls",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "x-user-cnp",
+						"type": "text",
+						"value": "1234567890000"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4010/api/v1.0/platform/election",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4010",
+					"path": [
+						"api",
+						"v1.0",
+						"platform",
+						"election"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getRegions",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "x-user-cnp",
+						"type": "text",
+						"value": "1234567890000"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4010/api/v1.0/platform/election",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4010",
+					"path": [
+						"api",
+						"v1.0",
+						"platform",
+						"election"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getResults",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "x-user-cnp",
+						"type": "text",
+						"value": "1234567890000"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4010/api/v1.0/platform/statistics/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4010",
+					"path": [
+						"api",
+						"v1.0",
+						"platform",
+						"statistics",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getNumberOfVotesPerRegion",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "x-user-cnp",
+						"type": "text",
+						"value": "1234567890000"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4010/api/v1.0/platform/statistics/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4010",
+					"path": [
+						"api",
+						"v1.0",
+						"platform",
+						"statistics",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "signUpForPoll",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "x-user-cnp",
+						"type": "text",
+						"value": "1234567890000"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"pollId\": 7\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4010/api/v1.0/platform/user/signUp",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4010",
+					"path": [
+						"api",
+						"v1.0",
+						"platform",
+						"user",
+						"signUp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "vote",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "x-user-cnp",
+						"type": "text",
+						"value": "1234567890000"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"idQuestion\": 6,\n\t\"uniqueCode\": \"3698247a-b916-4901-b73c-bf742c195b5d\",\n\t\"optionId\": 8\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4010/api/v1.0/platform/user/vote",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4010",
+					"path": [
+						"api",
+						"v1.0",
+						"platform",
+						"user",
+						"vote"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "change admin role",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "x-user-cnp",
+						"type": "text",
+						"value": "1234567890000"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"idQuestion\": 6,\n\t\"uniqueCode\": \"3698247a-b916-4901-b73c-bf742c195b5d\",\n\t\"optionId\": 8\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4010/api/v1.0/platform/user/vote",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4010",
+					"path": [
+						"api",
+						"v1.0",
+						"platform",
+						"user",
+						"vote"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

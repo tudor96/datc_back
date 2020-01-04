@@ -1,0 +1,33 @@
+{
+    "storage": {
+        "host": "146.148.120.68",
+        "port": 3306,
+        "user": "datcUser",
+        "password": "datcplm",
+        "database": "alegeri"
+    },
+    "pool": {
+        "connectionLimit": 60,
+        "connectTimeout": 120000,
+        "acquireTimeout": 120000,
+        "queryTimeout": 600000
+    },
+    "webServer": {
+        "httpport" : 4010,
+        "instance": 1,
+        "timeout": 60000,
+        "corsAllowed": ["http://localhost"]
+    },
+    "webConstants": {
+        "textPlain": "text/plain",
+        "appJson": "application/json",
+        "appStream1": "multipart/form-data",
+        "appStream2": "application/octet-stream",
+        "noDataAvailable" : -1
+    },
+   "endpoints" : {
+        "statisticsContext": "/api/v1.0/platform/statistics",
+        "electionContext": "/api/v1.0/platform/election",
+        "userContext": "/api/v1.0/platform/user"
+    }
+}
