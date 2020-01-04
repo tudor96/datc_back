@@ -1,10 +1,10 @@
 {
     "storage": {
-        "host": "146.148.120.68",
+        "host": "eu-cdbr-west-02.cleardb.net",
         "port": 3306,
-        "user": "datcUser",
-        "password": "datcplm",
-        "database": "alegeri"
+        "user": "b5658439382877",
+        "password": "cdd0bcf6",
+        "database": "heroku_b8371161874c4ce"
     },
     "pool": {
         "connectionLimit": 60,
