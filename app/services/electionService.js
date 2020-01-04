@@ -84,7 +84,6 @@ ElectionService.prototype.insertPoll = async function (poll) {
       let pollId = result.insertId;
       let questionsIds = [];
       Promise.all(poll.questions.forEach(async question => {
-      //  console.log(question)
         sql = `INSERT into question (name) values(?)`;
         let responseQuestions = await this._dbService.query(sql, [question.name]);
         sql = `INSERT into pollquestion values(?,?)`;
@@ -122,7 +121,7 @@ ElectionService.prototype.insertPoliticalParty = async function (name, descripti
 ElectionService.prototype.getPoliticalParties = async function () {
   return new Promise(async (resolve, reject) => {
     try {
-      let sql = `SELECT * from partid`;
+      let sql = `SELECT * from partid where id != 1`;
       let result = await this._dbService.query(sql, []);
 
       if(result === -1){
