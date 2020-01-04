@@ -19,7 +19,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"firstname\": \"Alexandru\",\n\t\"lastname\": \"Golcea\",\n\t\"email\": \"gltudor97@gmail.com\",\n\t\"cnp\": \"1234567891111\",\n\t\"adresa\": \"totundevreaplm\"\n}",
+					"raw": "{\n\t\"firstname\": \"Valentin\",\n\t\"lastname\": \"Gorcea\",\n\t\"username\": \"valentin.gorcea\",\n\t\"email\": \"valentingorcea@gmail.com\",\n\t\"cnp\": \"1234567891011\",\n\t\"adresa\": \"undestau\",\n\t\"sex\": \"male\",\n\t\"idJudet\": 1\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -59,7 +59,7 @@
 					},
 					{
 						"key": "x-user-cnp",
-						"value": "1234567890000",
+						"value": "1234567891011",
 						"type": "text"
 					}
 				],
@@ -68,7 +68,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:4010/api/v1.0/platform/user/?cnp=1234567890000",
+					"raw": "http://localhost:4010/api/v1.0/platform/user/?cnp=1234567891011",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -84,7 +84,7 @@
 					"query": [
 						{
 							"key": "cnp",
-							"value": "1234567890000"
+							"value": "1234567891011"
 						}
 					]
 				}
@@ -108,7 +108,7 @@
 					{
 						"key": "x-user-cnp",
 						"type": "text",
-						"value": "1234567890000"
+						"value": "1234567891011"
 					}
 				],
 				"body": {
@@ -116,7 +116,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:4010/api/v1.0/platform/user/4",
+					"raw": "http://localhost:4010/api/v1.0/platform/user/21",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -127,7 +127,7 @@
 						"v1.0",
 						"platform",
 						"user",
-						"4"
+						"21"
 					]
 				}
 			},
@@ -147,12 +147,12 @@
 					{
 						"key": "x-user-cnp",
 						"type": "text",
-						"value": "1234567890000"
+						"value": "1234567891011"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"name\": \"pollu meu\",\n\t\"description\": \"ce pollu meu\",\n\t\"startDate\": \"2020-02-02\",\n\t\"endDate\": \"2020-03-03\",\n\t\"questions\": [\n\t\t{\n\t\t\t\"name\": \"intrebearea mea plm?\",\n\t\t\t\"options\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"johha\"\n\t\t\t\t},{\n\t\t\t\t\t\"name\": \"danci\"\n\t\t\t\t}]\n\t\t}]\n}"
+					"raw": "{\n\t\"name\": \"pollu meu 2\",\n\t\"description\": \"ce pollu meu 2\",\n\t\"startDate\": \"2020-02-02\",\n\t\"endDate\": \"2020-03-03\",\n\t\"questions\": [\n\t\t{\n\t\t\t\"name\": \"intrebearea mea este?\",\n\t\t\t\"options\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"razvi\",\n\t\t\t\t\t\"description\": \"aici bag descriere plm\",\n\t\t\t\t\t\"idPartid\": null\n\t\t\t\t},{\n\t\t\t\t\t\"name\": \"toader\",\n\t\t\t\t\t\"description\": \"aici bag descriere plm iara\",\n\t\t\t\t\t\"idPartid\": 2\n\t\t\t\t}]\n\t\t}]\n}"
 				},
 				"url": {
 					"raw": "http://localhost:4010/api/v1.0/platform/election",
@@ -166,6 +166,45 @@
 						"v1.0",
 						"platform",
 						"election"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertPartid",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "x-user-cnp",
+						"type": "text",
+						"value": "1234567891011"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"PSD\",\n\t\"description\": \"ciuma rosie\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4010/api/v1.0/platform/election/partid",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4010",
+					"path": [
+						"api",
+						"v1.0",
+						"platform",
+						"election",
+						"partid"
 					]
 				}
 			},
@@ -188,7 +227,7 @@
 					{
 						"key": "x-user-cnp",
 						"type": "text",
-						"value": "1234567890000"
+						"value": "1234567891011"
 					}
 				],
 				"body": {
@@ -196,7 +235,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:4010/api/v1.0/platform/election/7",
+					"raw": "http://localhost:4010/api/v1.0/platform/election/31",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -207,7 +246,7 @@
 						"v1.0",
 						"platform",
 						"election",
-						"7"
+						"31"
 					]
 				}
 			},
@@ -230,7 +269,7 @@
 					{
 						"key": "x-user-cnp",
 						"type": "text",
-						"value": "1234567890000"
+						"value": "1234567891011"
 					}
 				],
 				"body": {
@@ -271,7 +310,7 @@
 					{
 						"key": "x-user-cnp",
 						"type": "text",
-						"value": "1234567890000"
+						"value": "1234567891011"
 					}
 				],
 				"body": {
@@ -279,7 +318,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:4010/api/v1.0/platform/election",
+					"raw": "http://localhost:4010/api/v1.0/platform/election/regions",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -289,7 +328,50 @@
 						"api",
 						"v1.0",
 						"platform",
-						"election"
+						"election",
+						"regions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getPoliticalParties",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "x-user-cnp",
+						"type": "text",
+						"value": "1234567891011"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4010/api/v1.0/platform/election/partid",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4010",
+					"path": [
+						"api",
+						"v1.0",
+						"platform",
+						"election",
+						"partid"
 					]
 				}
 			},
@@ -312,7 +394,7 @@
 					{
 						"key": "x-user-cnp",
 						"type": "text",
-						"value": "1234567890000"
+						"value": "1234567891011"
 					}
 				],
 				"body": {
@@ -320,7 +402,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:4010/api/v1.0/platform/statistics/7",
+					"raw": "http://localhost:4010/api/v1.0/platform/statistics/8",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -331,7 +413,7 @@
 						"v1.0",
 						"platform",
 						"statistics",
-						"7"
+						"8"
 					]
 				}
 			},
@@ -354,7 +436,7 @@
 					{
 						"key": "x-user-cnp",
 						"type": "text",
-						"value": "1234567890000"
+						"value": "1234567891011"
 					}
 				],
 				"body": {
@@ -362,7 +444,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:4010/api/v1.0/platform/statistics/7",
+					"raw": "http://localhost:4010/api/v1.0/platform/statistics/region/7",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -373,6 +455,7 @@
 						"v1.0",
 						"platform",
 						"statistics",
+						"region",
 						"7"
 					]
 				}
@@ -393,12 +476,12 @@
 					{
 						"key": "x-user-cnp",
 						"type": "text",
-						"value": "1234567890000"
+						"value": "1234567891011"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"pollId\": 7\n}"
+					"raw": "{\n\t\"pollId\": 8\n}"
 				},
 				"url": {
 					"raw": "http://localhost:4010/api/v1.0/platform/user/signUp",
@@ -432,12 +515,12 @@
 					{
 						"key": "x-user-cnp",
 						"type": "text",
-						"value": "1234567890000"
+						"value": "1234567891011"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"idQuestion\": 6,\n\t\"uniqueCode\": \"3698247a-b916-4901-b73c-bf742c195b5d\",\n\t\"optionId\": 8\n}"
+					"raw": "{\n\t\"idQuestion\": 7,\n\t\"uniqueCode\": \"0f1c4a9d-4628-4cf2-9f0d-def6a9129242\",\n\t\"optionId\": 10\n}"
 				},
 				"url": {
 					"raw": "http://localhost:4010/api/v1.0/platform/user/vote",
@@ -471,15 +554,15 @@
 					{
 						"key": "x-user-cnp",
 						"type": "text",
-						"value": "1234567890000"
+						"value": "1234567891011"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"idQuestion\": 6,\n\t\"uniqueCode\": \"3698247a-b916-4901-b73c-bf742c195b5d\",\n\t\"optionId\": 8\n}"
+					"raw": "{\n\t\"isAdmin\": 1\n}"
 				},
 				"url": {
-					"raw": "http://localhost:4010/api/v1.0/platform/user/vote",
+					"raw": "http://localhost:4010/api/v1.0/platform/user/admin/6",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -490,7 +573,8 @@
 						"v1.0",
 						"platform",
 						"user",
-						"vote"
+						"admin",
+						"6"
 					]
 				}
 			},
