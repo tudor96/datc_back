@@ -7,14 +7,6 @@ const userService = new(require('./app/services/userService'))(configService.con
 
 const https = require('https');
 const http = require('http');
-const fs = require('fs');
-
-const options = {
-    key: fs.readFileSync('keys/key.pem'),
-    cert: fs.readFileSync('keys/cert.pem'),
-    passphrase: configService.config.webServer.passphrase,
-};
-
 
 const app = require('./app/controllers/mainController')(
     log,
@@ -26,20 +18,12 @@ const app = require('./app/controllers/mainController')(
 // PORT is either provided as cli param, or read from config
 // =============================================================================
 const HTTP_PORT = process.env.PORT || configService.config.webServer.httpport;
-const HTTPS_PORT = process.env.PORT || configService.config.webServer.httpsport;
 
 // START THE SERVER
 // =============================================================================
 if (HTTP_PORT) {
     const server = http.createServer(app).listen(HTTP_PORT, function() {
         log.debug(`Server started on http port:  ${HTTP_PORT} ....`);
-    });
-    server.timeout = configService.config.webServer.serverTimeout;
-}
-
-if (HTTPS_PORT) {
-    const server = https.createServer(options, app).listen(HTTP_PORT, function() {
-        log.debug(`Server started on https port:  ${HTTP_PORT} ....`);
     });
     server.timeout = configService.config.webServer.serverTimeout;
 }
