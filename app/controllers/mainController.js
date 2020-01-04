@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const HttpError = require('../util/httpError');
 const StatisticsController = require('./statisticsController');
-const ElectionController = require('./ElectionController');
+const ElectionController = require('./electionController');
 const UserController = require('./userController');
 const wrapAsync = require('../middlewares/wrapAsync');
 
