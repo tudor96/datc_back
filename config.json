@@ -16,7 +16,7 @@
         "httpport" : 4010,
         "instance": 1,
         "timeout": 60000,
-        "corsAllowed": ["http://localhost"]
+        "corsAllowed": ["http://localhost", "https://votedatc.herokuapp.com/"]
     },
     "webConstants": {
         "textPlain": "text/plain",
