@@ -78,6 +78,8 @@ ElectionService.prototype.insertPoll = async function (poll) {
     try {
       console.log(poll)
       let sql = `INSERT into poll(name,description,startDate,endDate) values (?,?,?,?)`;
+      let startDate = poll.startDate.split("T")[0] + " " + poll.startDate.split("T")[1].split(".")[0];
+      let endDate = poll.endDate.split("T")[0] + " " + poll.endDate.split("T")[1].split(".")[0];
       let result = await this._dbService.query(sql, [poll.name, poll.description, poll.startDate, poll.endDate]);
       let pollId = result.insertId;
       let questionsIds = [];
