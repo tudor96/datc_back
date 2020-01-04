@@ -25,8 +25,8 @@ const app = require('./app/controllers/mainController')(
 
 // PORT is either provided as cli param, or read from config
 // =============================================================================
-const HTTP_PORT = (process.argv)[2] || configService.config.webServer.httpport;
-const HTTPS_PORT = (process.argv)[3] || configService.config.webServer.httpsport;
+const HTTP_PORT = process.env.PORT || configService.config.webServer.httpport;
+const HTTPS_PORT = process.env.PORT || configService.config.webServer.httpsport;
 
 // START THE SERVER
 // =============================================================================
