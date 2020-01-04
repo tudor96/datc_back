@@ -19,7 +19,7 @@ ElectionService.prototype.getPolls = async function () {
           sql = `SELECT id, name from question, pollquestion where pollId = ? and id = questionId`;
           let responseQuestions = await this._dbService.query(sql, [poll.id]);
           poll["questions"] = responseQuestions;
-          return Promise.all(poll.questions.map(async question => {
+          return Promise.all(poll.questions.map(async (question, index) => {
             sql = 'SELECT o.id, o.name, o.description, p.name as partidName from `option` o, partid p where questionId = ? and o.idPartid = p.id';
             let responseOptions = await this._dbService.query(sql, [question.id]);
             question["options"] = responseOptions;
