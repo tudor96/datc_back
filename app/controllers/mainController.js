@@ -14,13 +14,9 @@ module.exports = function (log, dbService, config, userService) {
 
     // cors
     // =============================================================================
-    const corsOptions = {
-        origin: config.webServer.corsAllowed,
-        optionsSuccessStatus: 200,
-        credentials: true,
-    };
 
-    app.use(cors(corsOptions));
+
+    app.use(cors());
 
     // frontend
     // =============================================================================
