@@ -61,7 +61,6 @@ ElectionService.prototype.getPoll = async function (id) {
         let responseQuestions = await this._dbService.query(sql, [poll.id]);
         poll["questions"] = responseQuestions;
         return Promise.all(poll.questions.map(async question => {
-
           sql = 'SELECT o.id, o.name, o.description, p.name  from `option` o, partid p where questionId = ? and o.idPartid = p.id';
           let responseOptions = await this._dbService.query(sql, [question.id]);
           question["options"] = responseOptions;
@@ -79,11 +78,13 @@ ElectionService.prototype.getPoll = async function (id) {
 ElectionService.prototype.insertPoll = async function (poll) {
   return new Promise(async (resolve, reject) => {
     try {
+      console.log(poll)
       let sql = `INSERT into poll(name,description,startDate,endDate) values (?,?,?,?)`;
       let result = await this._dbService.query(sql, [poll.name, poll.description, poll.startDate, poll.endDate]);
       let pollId = result.insertId;
       let questionsIds = [];
       Promise.all(poll.questions.forEach(async question => {
+      //  console.log(question)
         sql = `INSERT into question (name) values(?)`;
         let responseQuestions = await this._dbService.query(sql, [question.name]);
         sql = `INSERT into pollquestion values(?,?)`;
