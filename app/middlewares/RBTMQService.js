@@ -10,7 +10,6 @@ const amqpModule = (function (){
       this.connect = function(){
           amqp.connect(CONN_URL, function (err, conn) {
               conn.createChannel(function (err, channel) {
-                console.log("here")
                  ch = channel;
               });
            });
@@ -19,16 +18,15 @@ const amqpModule = (function (){
           if (ch === null){
               amqp.connect(CONN_URL, function (err, conn) {
                   conn.createChannel(function (err, channel) {
-                    console.log("here")
                      ch = channel;
-                    console.log(ch)
-
                      ch.sendToQueue(queueName, new Buffer(data));
                   });
                });
           }
+          else{
           ch.sendToQueue(queueName, new Buffer(data));
-      },
+        }
+        },
       this.close = function(){
           ch.close();
       }

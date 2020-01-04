@@ -17,9 +17,9 @@ amqp.connect(CONN_URL, function (err, conn) {
 
                    const mailOptions = {
                     from: 'election.platform.noreplay@gmail.com', // sender address
-                    to: msg.content.email, // list of receivers
+                    to: JSON.parse(msg.content.toString()).email, // list of receivers
                     subject: 'Code for election', // Subject line
-                    html: '<p> Codul tau pentru a putea vota este urmatorul: '+msg.content.uniqueCode+'</p>'// plain text body
+                    html: '<p> Codul tau pentru a putea vota este urmatorul: '+JSON.parse(msg.content.toString()).uniqueCode+'</p>'// plain text body
                   };
 
                   transporter.sendMail(mailOptions, function (err, info) {
@@ -28,7 +28,6 @@ amqp.connect(CONN_URL, function (err, conn) {
                     else
                       console.log(info);
                  });
-        //console.log("Message:", msg.content.toString());
       },4000);
       },{ noAck: true }
     );
