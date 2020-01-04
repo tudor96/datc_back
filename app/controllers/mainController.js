@@ -7,7 +7,6 @@ const HttpError = require('../util/httpError');
 const StatisticsController = require('./statisticsController');
 const ElectionController = require('./electionController');
 const UserController = require('./userController');
-const wrapAsync = require('../middlewares/wrapAsync');
 
 module.exports = function (log, dbService, config, userService) {
     const app = express();
