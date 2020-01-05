@@ -66,29 +66,7 @@ const router = function (userService) {
             const result = await userService.signUpForPoll(req.authenticatedUser.id, req.body.pollId, uniqueCode);
             
             if (result[0] !== undefined) {
-                /* var transporter = nodemailer.createTransport({
-                    service: 'gmail',
-                    auth: {
-                           user: 'election.platform.noreplay@gmail.com',
-                           pass: 'toader69'
-                       }
-                   });
-
-                   const mailOptions = {
-                    from: 'election.platform.noreplay@gmail.com', // sender address
-                    to: req.authenticatedUser.email, // list of receivers
-                    subject: 'Code for election', // Subject line
-                    html: '<p> Codul tau pentru a putea vota este urmatorul: '+uniqueCode+'</p>'// plain text body
-                  };
-
-                  transporter.sendMail(mailOptions, function (err, info) {
-                    if(err)
-                      console.log(err)
-                    else
-                      console.log(info);
-                 }); */
-                
-                code.sendCode(JSON.stringify({"code": uniqueCode,
+                code.sendCode(JSON.stringify({"uniqueCode": uniqueCode,
                 email: req.authenticatedUser.email}));
 
                 res.setHeader('Status', 200);
