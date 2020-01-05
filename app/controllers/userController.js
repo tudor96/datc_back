@@ -20,7 +20,7 @@ const router = function (userService) {
             const users = await userService.getUsers(params);
 
             res.setHeader('Status', 200);
-            res.send(users);
+            res.sendStatus(users);
         } catch (err) {
             log.error(JSON.stringify(err));
             return next(new HttpError(500, `GET / user error ${err}.`));
@@ -32,7 +32,7 @@ const router = function (userService) {
         try {
             const users = await userService.getUser(req.params.id);
             res.setHeader('Status', 200);
-            res.send(users);
+            res.sendStatus(users);
         } catch (err) {
             log.error(JSON.stringify(err));
             return next(new HttpError(500, `GET /:id user error ${err}.`));
@@ -46,7 +46,7 @@ const router = function (userService) {
             let result = await userService.getUser(resultInsert.insertId);
 
             res.setHeader('Status', 200);
-            res.send(result);
+            res.sendStatus(result);
         } catch (err) {
             log.error(JSON.stringify(err));
             return next(new HttpError(500, `POST / user error ${err}.`));
@@ -70,7 +70,7 @@ const router = function (userService) {
                 email: req.authenticatedUser.email}));
 
                 res.setHeader('Status', 200);
-                res.send(uniqueCode);
+                res.sendStatus(uniqueCode);
             }
             else {
                 return next(new HttpError(403, `Already signed up!`));
@@ -86,7 +86,7 @@ const router = function (userService) {
         try {
             const result = await userService.vote(req.authenticatedUser.id, req.body.idQuestion, req.body.uniqueCode, req.body.optionId);
             res.setHeader('Status', 200);
-            res.send(result);
+            res.sendStatus(result);
         } catch (err) {
             log.error(JSON.stringify(err));
             if(err.includes("Already")){
@@ -103,7 +103,7 @@ const router = function (userService) {
         try {
             const result = await userService.changeAdminRole(req.params.id, req.body.isAdmin);
             res.setHeader('Status', 200);
-            res.send(result);
+            res.sendStatus(result);
         } catch (err) {
             log.error(JSON.stringify(err));
             return next(new HttpError(500, `PUT /vote user error ${err}.`));

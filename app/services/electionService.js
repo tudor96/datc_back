@@ -12,8 +12,8 @@ function ElectionService(config, dbService) {
 ElectionService.prototype.getPolls = async function () {
   return new Promise(async (resolve, reject) => {
     try {
-      let sql = `SELECT id, name, description, startDate, endDate from poll where startDate > ?`;
-      let result = await this._dbService.query(sql, [new Date()]);
+      let sql = `SELECT id, name, description, startDate, endDate from poll`;
+      let result = await this._dbService.query(sql, []);
       if (result !== -1) {
         let final = Promise.all(result.map(async poll => {
           sql = `SELECT id, name from question, pollquestion where pollId = ? and id = questionId`;
@@ -87,25 +87,28 @@ ElectionService.prototype.getPoll = async function (id) {
 ElectionService.prototype.insertPoll = async function (poll) {
   return new Promise(async (resolve, reject) => {
     try {
-      console.log(poll)
+     // console.log(poll)
       let sql = `INSERT into poll(name,description,startDate,endDate) values (?,?,?,?)`;
       let startDate = poll.startDate.split("T")[0] + " " + poll.startDate.split("T")[1].split(".")[0];
       let endDate = poll.endDate.split("T")[0] + " " + poll.endDate.split("T")[1].split(".")[0];
       let result = await this._dbService.query(sql, [poll.name, poll.description, startDate, endDate]);
       let pollId = result.insertId;
       let questionsIds = [];
-      Promise.all(poll.questions.forEach(async question => {
+      console.log("1 ", poll.questions);
+      await Promise.all(poll.questions.map(async question => {
         sql = `INSERT into question (name) values(?)`;
         let responseQuestions = await this._dbService.query(sql, [question.name]);
         sql = `INSERT into pollquestion values(?,?)`;
         let responsePollQuestions = await this._dbService.query(sql, [pollId, responseQuestions.insertId]);
         questionsIds.push(responseQuestions.insertId);
-        Promise.all(question.options.forEach(async option => {
+        console.log("2 ", question.options);
+
+        await Promise.all(question.options.map(async option => {
           sql = 'INSERT into `option` (name, questionId, votes, description, idPartid) values(?,?,?,?,?)';
           let responseOptions = await this._dbService.query(sql, [option.name, responseQuestions.insertId, 0, option.description, option.idPartid]);
-          return Promise.resolve();
+          //return Promise.resolve();
         }))
-        return Promise.resolve();
+        return Promise.resolve(question);
       }))
 
 
