@@ -14,7 +14,7 @@ const router = function (statisticsService) {
             const result = await statisticsService.getPollStatistics(req.params.pollId);
 
             res.setHeader('Status', 200);
-            res.sendStatus(result);
+            res.send(result);
         } catch (err) {
             log.error(JSON.stringify(err));
             return next(new HttpError(500, `GET / voting error ${err}.`));
@@ -27,7 +27,7 @@ const router = function (statisticsService) {
             const result = await statisticsService.getPollStatisticsRegion(req.params.pollId);
 
             res.setHeader('Status', 200);
-            res.sendStatus(result);
+            res.send(result);
         } catch (err) {
             log.error(JSON.stringify(err));
             return next(new HttpError(500, `GET / voting error ${err}.`));
@@ -40,7 +40,7 @@ const router = function (statisticsService) {
             const result = await statisticsService.getPollStatisticsPerSex(req.params.pollId);
 
             res.setHeader('Status', 200);
-            res.sendStatus(result);
+            res.send(result);
         } catch (err) {
             log.error(JSON.stringify(err));
             return next(new HttpError(500, `GET / voting error ${err}.`));

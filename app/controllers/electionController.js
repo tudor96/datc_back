@@ -15,7 +15,7 @@ const router = function (electionService) {
             let result = await electionService.insertPoliticalParty(req.body.name, req.body.description);
 
             res.setHeader('Status', 200);
-            res.sendStatus(result);
+            res.send(result);
         } catch (err) {
             log.error(JSON.stringify(err));
             return next(new HttpError(500, `POST / partid error ${err}.`));
@@ -28,7 +28,7 @@ const router = function (electionService) {
             let result = await electionService.getPoliticalParties();
 
             res.setHeader('Status', 200);
-            res.sendStatus(result);
+            res.send(result);
         } catch (err) {
             log.error(JSON.stringify(err));
             return next(new HttpError(500, `GET / partid error ${err}.`));
@@ -42,7 +42,7 @@ const router = function (electionService) {
             const result = await electionService.getRegions();
 
             res.setHeader('Status', 200);
-            res.sendStatus(result);
+            res.send(result);
         } catch (err) {
             log.error(JSON.stringify(err));
             return next(new HttpError(500, `GET / regions error ${err}.`));
@@ -55,7 +55,7 @@ const router = function (electionService) {
             const result = await electionService.getPolls();
 
             res.setHeader('Status', 200);
-            res.sendStatus(result);
+            res.send(result);
         } catch (err) {
             log.error(JSON.stringify(err));
             return next(new HttpError(500, `GET / error ${err}.`));
@@ -68,7 +68,7 @@ const router = function (electionService) {
             const result = await electionService.getPoll(req.params.id);
 
             res.setHeader('Status', 200);
-            res.sendStatus(result);
+            res.send(result);
         } catch (err) {
             log.error(JSON.stringify(err));
             return next(new HttpError(500, `GET /:id error ${err}.`));
@@ -82,7 +82,7 @@ const router = function (electionService) {
             //result = await electionService.getPoll(result);
 
             res.setHeader('Status', 200);
-            res.sendStatus(result);
+            res.send(result);
         } catch (err) {
             log.error(JSON.stringify(err));
             return next(new HttpError(500, `POST / error ${err}.`));
