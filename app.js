@@ -4,8 +4,7 @@ const log = require('./app/services/logService');
 const configService = require('./app/services/configurationService');
 const dbService = new(require('./app/services/dbService'))(configService.config);
 const userService = new(require('./app/services/userService'))(configService.config, dbService);
-
-const https = require('https');
+const consumer = require(`./app/workerDebugLogs`);
 const http = require('http');
 
 const app = require('./app/controllers/mainController')(
@@ -27,6 +26,9 @@ if (HTTP_PORT) {
     });
     server.timeout = configService.config.webServer.serverTimeout;
 }
+
+//start the consumer
+consumer();
 
 // SIGNAL HANDLERS
 // =============================================================================

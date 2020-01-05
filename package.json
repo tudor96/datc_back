@@ -7,7 +7,7 @@
         "lint": "eslint ./app --fix",
         "test": "nyc --reporter=html --reporter=text mocha",
         "test4Dev": "mocha test --colors --recursive --watch",
-        "start": "node app.js && node ./app/workerDebugLogs.js"
+        "start": "node app.js"
     },
     "keywords": [
         "voting",

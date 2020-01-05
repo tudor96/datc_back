@@ -2,11 +2,15 @@ var amqp = require('amqplib/callback_api');
 const nodemailer = require("nodemailer");
 
 const CONN_URL = 'amqp://yvgwldoi:5e1DbKDcwDYcWWUREpvfLC3t_1x5C1re@stingray.rmq.cloudamqp.com/yvgwldoi';
+
+function startConsumer(){
+console.log("Consumer started");
+
 amqp.connect(CONN_URL, function (err, conn) {
-	console.log("worker started");
- 
   conn.createChannel(function (err, ch) {
+
     ch.consume('code', function (msg) {
+      
       setTimeout(function(){
         var transporter = nodemailer.createTransport({
                     service: 'gmail',
@@ -34,3 +38,7 @@ amqp.connect(CONN_URL, function (err, conn) {
     );
   });
 });
+
+}
+
+module.exports = startConsumer;
