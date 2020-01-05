@@ -82,7 +82,7 @@ const router = function (electionService) {
             //result = await electionService.getPoll(result);
 
             res.setHeader('Status', 200);
-            res.send(result);
+            res.send({"pollInserted": result});
         } catch (err) {
             log.error(JSON.stringify(err));
             return next(new HttpError(500, `POST / error ${err}.`));
