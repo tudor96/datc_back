@@ -79,8 +79,8 @@ const router = function (electionService) {
     electionRouter.post('/', async (req, res, next) => {
         try {
             let result = await electionService.insertPoll(req.body);
-            result = await electionService.getPoll(result);
-
+           // result = await electionService.getPoll(result);
+			
             res.setHeader('Status', 200);
             res.send(result);
         } catch (err) {

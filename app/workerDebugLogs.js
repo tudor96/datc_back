@@ -3,6 +3,7 @@ const nodemailer = require("nodemailer");
 
 const CONN_URL = 'amqp://yvgwldoi:5e1DbKDcwDYcWWUREpvfLC3t_1x5C1re@stingray.rmq.cloudamqp.com/yvgwldoi';
 amqp.connect(CONN_URL, function (err, conn) {
+	console.log("worker started");
  
   conn.createChannel(function (err, ch) {
     ch.consume('code', function (msg) {
