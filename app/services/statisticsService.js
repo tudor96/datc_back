@@ -23,9 +23,7 @@ StatisticsService.prototype.getPollStatistics = async function (pollId) {
         questions.push(res.questionId);
       })
 
-      console.log(questions)
-
-      sql = 'SELECT id, name, sum(votes) as votes from `option` where questionId in (' + `${questions}` +') group by id';
+      sql = 'SELECT o.id, q.id as questionId, q.name as questionName, o.name, sum(o.votes) as votes from `option` o, question q where questionId in (' + `${questions}` +') and q.id = o.questionId group by id';
       result = await this._dbService.query(sql, []);
 
       return resolve(result);
