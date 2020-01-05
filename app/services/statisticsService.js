@@ -23,10 +23,20 @@ StatisticsService.prototype.getPollStatistics = async function (pollId) {
         questions.push(res.questionId);
       })
 
-      sql = 'SELECT o.id, q.id as questionId, q.name as questionName, o.name, sum(o.votes) as votes from `option` o, question q where questionId in (' + `${questions}` +') and q.id = o.questionId group by id';
+      sql = 'SELECT o.id, q.id as questionId, q.name as questionName, o.name, sum(o.votes) as votes from `option` o, question q where questionId in (' + `${questions}` +') and q.id = o.questionId group by o.id';
       result = await this._dbService.query(sql, []);
 
-      return resolve(result);
+      let groupedResult = [];
+
+      if(result !== -1){
+        groupedResult = result.reduce(function (r, a) {
+          r[a.questionId] = r[a.questionId] || [];
+          r[a.questionId].push(a);
+          return r;
+      }, Object.create(null));
+      }
+
+      return resolve(groupedResult);
     } catch (err) {
       return reject(err);
     }
