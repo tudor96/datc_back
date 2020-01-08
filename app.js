@@ -1,4 +1,5 @@
 'use strict';
+var express = require('express');
 var serveStatic = require('serve-static');
 const log = require('./app/services/logService');
 const configService = require('./app/services/configurationService');
