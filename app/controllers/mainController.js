@@ -3,8 +3,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-var serveStatic = require('serve-static');
-const path = require('path')
 const HttpError = require('../util/httpError');
 const StatisticsController = require('./statisticsController');
 const ElectionController = require('./electionController');
@@ -27,10 +25,6 @@ module.exports = function (log, dbService, config, userService) {
     // =============================================================================
     //app.use(express.static('build'));
 	
-	app.use(express.static(path.join(__dirname, '../../build')));
-app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname, '../../build', 'index.html'));
-});
 
     // authentication
     // =============================================================================
