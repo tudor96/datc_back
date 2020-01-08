@@ -43,12 +43,12 @@ module.exports = function (log, dbService, config, userService) {
                 next();
             }
             else {
-                if (req.url.includes("/user") && req.method === "POST") {
+               // if (req.url.includes("/user") && req.method === "POST") {
                     next();
-                }
-                else {
+              //  }
+               /* else {
                     return next(new HttpError(401, `Unauthorized`));
-                }
+                } */
             }
         }
         catch (err) {
