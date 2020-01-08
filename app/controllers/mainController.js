@@ -19,7 +19,7 @@ module.exports = function (log, dbService, config, userService) {
         credentials: true,
     };
 
-    app.use(cors(corsOptions));
+    app.use(cors());
 
     // frontend
     // =============================================================================
