@@ -23,7 +23,7 @@ module.exports = function (log, dbService, config, userService) {
 
     // frontend
     // =============================================================================
-    app.use(express.static('www'));
+    app.use(express.static('build'));
 
     // authentication
     // =============================================================================

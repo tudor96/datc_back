@@ -1,13 +1,12 @@
 'use strict';
-var express = require('express');
-var serveStatic = require('serve-static');
+
 const log = require('./app/services/logService');
 const configService = require('./app/services/configurationService');
 const dbService = new(require('./app/services/dbService'))(configService.config);
 const userService = new(require('./app/services/userService'))(configService.config, dbService);
 const consumer = require(`./app/workerDebugLogs`);
 const http = require('http');
-const path = require('path')
+
 const app = require('./app/controllers/mainController')(
     log,
     dbService,
@@ -15,10 +14,6 @@ const app = require('./app/controllers/mainController')(
     userService
 );
 
-app.use(express.static(path.join(__dirname, 'build')));
-app.get('/*', function(req, res) {
-    res.sendFile(path.join(__dirname, 'Frontend/build', 'index.html'));
-  });
 // PORT is either provided as cli param, or read from config
 // =============================================================================
 const HTTP_PORT = process.env.PORT || configService.config.webServer.httpport;
