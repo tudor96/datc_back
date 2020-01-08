@@ -1,5 +1,5 @@
 'use strict';
-
+var serveStatic = require('serve-static');
 const log = require('./app/services/logService');
 const configService = require('./app/services/configurationService');
 const dbService = new(require('./app/services/dbService'))(configService.config);
@@ -13,6 +13,8 @@ const app = require('./app/controllers/mainController')(
     configService.config,
     userService
 );
+
+app.use(express.static(path.join(__dirname, 'build')));
 
 // PORT is either provided as cli param, or read from config
 // =============================================================================
